@@ -11,11 +11,49 @@
 </body>
 <script>
 
-function ComputerChoice(); {
-        options = ['Rock','Paper','Scissors']
+function computerChoice(); {
+        options = ['rock','paper','scissors']
         let randomNumber = Math.floor((Math.random()*3));
-        ComputerSelection = options[randomNumber];
+        computerSelection = options[randomNumber];
 } 
+
+function RockPaperScissors(playerSelection, computerSelection) {
+
+    if (playerSelection === 'rock' && computerSelection ==='scissors'){
+        result = ('You win!');
+    } else if (playerSelection === 'rock' && computerSelection ==='paper'){
+        result = ('You lost!');
+    } else if (playerSelection === 'rock' && computerSelection ==='rock'){
+        result = ('Tie game!');
+    } else if (playerSelection === 'paper' && computerSelection ==='scissors'){
+        result = ('You lost!');
+    } else if (playerSelection === 'paper' && computerSelection ==='paper'){
+        result = ('Tie game!');
+    } else if (playerSelection === 'paper' && computerSelection ==='rock'){
+        result = ('You win!');
+    } else if (playerSelection === 'scissors' && computerSelection ==='paper'){
+        result = ('You win!');
+    } else if (playerSelection === 'scissors' && computerSelection ==='rock'){
+        result = ('You lose!');
+    } else (playerSelection === 'scissors' && computerSelection ==='scissors');{
+        result = ('Tie game!');
+    }
+
+    return result;
+
+
+}
+
+let userInput = prompt("What is your choice? Rock, Paper or Scissors?");
+
+let playerSelection = userInput.toLowerCase()
+
+if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection ==='scissors') {
+
+}
+
+
+
     
 </script>
 </html>
