@@ -11,37 +11,41 @@
 </body>
 <script>
 
-function computerChoice(); {
+function computerChoice() {
         options = ['rock','paper','scissors']
-        let randomNumber = Math.floor((Math.random()*3));
-        computerSelection = options[randomNumber];
+        let randomNumber = Math.floor(Math.random()*3);
+        console.log(randomNumber);
+        let computerSelection = options[randomNumber];
+        return computerSelection;
 } 
 
-function RockPaperScissors(playerSelection, computerSelection) {
+function RockPaperScissors(playerSelection,computerSelection) {
+    
+    let result;
 
     if (playerSelection === 'rock' && computerSelection ==='scissors'){
-        result = ('You win!');
+       result = ('You win!');
     } else if (playerSelection === 'rock' && computerSelection ==='paper'){
-        result = ('You lost!');
+       result = ('You lost!');
     } else if (playerSelection === 'rock' && computerSelection ==='rock'){
-        result = ('Tie game!');
+       result = ('Tie game!');
     } else if (playerSelection === 'paper' && computerSelection ==='scissors'){
-        result = ('You lost!');
+       result = ('You lost!');
     } else if (playerSelection === 'paper' && computerSelection ==='paper'){
-        result = ('Tie game!');
+       result = ('Tie game!');
     } else if (playerSelection === 'paper' && computerSelection ==='rock'){
-        result = ('You win!');
+       result = ('You win!');
     } else if (playerSelection === 'scissors' && computerSelection ==='paper'){
-        result = ('You win!');
+       result = ('You win!');
     } else if (playerSelection === 'scissors' && computerSelection ==='rock'){
-        result = ('You lose!');
-    } else (playerSelection === 'scissors' && computerSelection ==='scissors');{
-        result = ('Tie game!');
+       result = ('You lose!');
+    } else if (playerSelection === 'scissors' && computerSelection ==='scissors'){
+       result = ('Tie game!')
+    } else {
+       result = 'Invalid entry! Please try again!'
     }
 
     return result;
-
-
 }
 
 let userInput = prompt("What is your choice? Rock, Paper or Scissors?");
