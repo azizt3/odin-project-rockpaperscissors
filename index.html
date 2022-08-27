@@ -11,26 +11,26 @@
 </body>
 <script>
 
-
 function RockPaperScissors(playerSelection, computerSelection) {
 
     function getUserChoice(){
         let userInput = prompt("What is your choice? Rock, Paper or Scissors?");
-        playerSelection = userInput.toLowerCase()
+        if (userInput === null){
+            getUserChoice();
+        } else{
+        playerSelection = userInput.toLowerCase()}
         return playerSelection;
     }
-    console.log(getUserChoice());
 
     function getComputerChoice() {
         options = ['rock','paper','scissors']
         let randomNumber = Math.floor(Math.random()*3);
-        console.log(randomNumber);
         computerSelection = options[randomNumber];
         return computerSelection;
     } 
-    console.log(getComputerChoice());
     
-    let result;
+    getUserChoice();
+    getComputerChoice();
 
     if (playerSelection === 'rock' && computerSelection ==='scissors'){
        result = ('You win!');
@@ -47,7 +47,7 @@ function RockPaperScissors(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection ==='paper'){
        result = ('You win!');
     } else if (playerSelection === 'scissors' && computerSelection ==='rock'){
-       result = ('You lose!');
+       result = ('You lost!');
     } else if (playerSelection === 'scissors' && computerSelection ==='scissors'){
        result = ('Tie game!')
     } else {
@@ -57,7 +57,49 @@ function RockPaperScissors(playerSelection, computerSelection) {
     return result;
 }
 
-console.log(RockPaperScissors())
+function game(){
+    var outcome;
+    var score = 0;
+    function playRound(){
+        for (let i = 0; i<5; i++){
+            outcome = RockPaperScissors(); 
+            if (outcome ==='You win!'){
+                score++
+            } else if (outcome === 'You lost!'){
+                score--
+            } else if (outcome ==='Tie game!'){
+                score + 0
+            } else {
+                i--
+
+            }
+            alert(outcome);
+            console.log(outcome);
+            console.log(score)
+        } 
+        return score; 
+    } 
+
+    let gameStart = confirm('Want to play 5 rounds of rock, paper, scissors?')
+    if (gameStart) {
+        playRound();
+
+        if (score > 0){
+            outcome = 'You won the 5 round game!'
+        } else if (score = 0) {
+            outcome = 'Tie game!'
+        } else {
+            outcome = 'You lost the 5 round game!'
+        }
+
+    } else {
+        alert('Boring!');
+    } 
+    alert(outcome);
+    return outcome;
+    
+
+} console.log(game())
 
     
 </script>
