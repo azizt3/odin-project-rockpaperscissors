@@ -63,6 +63,7 @@ function rPS (Event){
    playerSelection = (Event.target.value);
    console.log(playerSelection);
    RockPaperScissors(playerSelection);
+   playRound();
 };
 
 
