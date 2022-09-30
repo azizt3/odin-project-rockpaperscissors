@@ -47,21 +47,23 @@ function RockPaperScissors (){
       result = 'Invalid entry! Please try again!'
    }
    console.log(playerSelection);
-   console.log(computerSelection);
 
    return result;
    };
 
 
 
-const rps = document.querySelector('.weapon');
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
 
-document.addEventListener('click', rPS, true);
+rock.addEventListener('click', rPS, true);
+paper.addEventListener('click', rPS, true);
+scissors.addEventListener('click', rPS, true);
 
 function rPS (Event){
    playerSelection = (Event.target.value);
-   console.log(playerSelection);
    RockPaperScissors(playerSelection);
    playRound();
 };
