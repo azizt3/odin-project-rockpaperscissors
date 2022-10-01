@@ -53,14 +53,24 @@ function RockPaperScissors (){
 
 
 
+const gameStart = document.querySelector('#gameStart');
 const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
+const paper = document.querySelector('#paper')
+const scissors = document.querySelector('#scissors')
+
+gameStart.addEventListener('click', game, true);
 
 
-rock.addEventListener('click', rPS, true);
-paper.addEventListener('click', rPS, true);
-scissors.addEventListener('click', rPS, true);
+function game(){
+   console.log(Event);
+   
+   for (i = 0; i<5; i++){
+      rock.addEventListener('click', rPS, true);
+      paper.addEventListener('click', rPS, true);
+      scissors.addEventListener('click', rPS, true)
+   }
+
+}
 
 function rPS (Event){
    playerSelection = (Event.target.value);
