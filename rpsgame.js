@@ -22,40 +22,50 @@ function getComputerChoice() {
 
 //    return score; }
 
-
-function playRound (){ 
-   computerSelection = getComputerChoice();
-   if (playerSelection === 'rock' && computerSelection ==='scissors'){
-      result = ('You win!');
-   } else if (playerSelection === 'rock' && computerSelection ==='paper'){
-      result = ('You lost!');
-   } else if (playerSelection === 'rock' && computerSelection ==='rock'){
-      result = ('Tie game!');
-   } else if (playerSelection === 'paper' && computerSelection ==='scissors'){
-      result = ('You lost!');
-   } else if (playerSelection === 'paper' && computerSelection ==='paper'){
-      result = ('Tie game!');
-   } else if (playerSelection === 'paper' && computerSelection ==='rock'){
-      result = ('You win!');
-   } else if (playerSelection === 'scissors' && computerSelection ==='paper'){
-      result = ('You win!');
-   } else if (playerSelection === 'scissors' && computerSelection ==='rock'){
-      result = ('You lost!');
-   } else if (playerSelection === 'scissors' && computerSelection ==='scissors'){
-      result = ('Tie game!')
-   } else {
-      result = 'Invalid entry! Please try again!'
-   }
-   console.log(playerSelection);
-   console.log(result)
-   return result;
-   
-   };
+// Oct 2nd - 2h 30 mins in
 
 const gameStart = document.querySelector('#gameStart');
 gameStart.addEventListener('click', game);
 
 function game(){
+   function playRound (){ 
+      computerSelection = getComputerChoice();
+
+      if    ((playerSelection === 'rock' && computerSelection ==='scissors') ||
+            (playerSelection === 'paper' && computerSelection ==='rock') ||
+            (playerSelection === 'scissors' && computerSelection ==='paper')) {
+
+         result = ('W')}
+      
+      else if ((playerSelection === 'rock' && computerSelection ==='paper') ||
+               (playerSelection === 'paper' && computerSelection ==='scissors') ||
+               (playerSelection === 'scissors' && computerSelection ==='rock')){
+         
+         result = ('L')}
+          
+      else if ((playerSelection === 'rock' && computerSelection ==='rock') ||
+               (playerSelection === 'paper' && computerSelection ==='paper') ||
+               (playerSelection === 'scissors' && computerSelection ==='scissors')){
+         
+         result = ('T')}
+      
+      else {
+         
+         result = ('error')}
+
+      console.log(playerSelection);
+      console.log(result)
+      return result;
+      
+      };
+
+   function rPS (Event){
+      playerSelection = (Event.target.value);
+      playRound();
+   };
+
+   var playerSelection 
+   
    const statusBar = document.querySelector('#statusBar');
    statusBar.textContent = 'Status: Game in progress, Round 1 - Make a selection!'
    const weapon = document.querySelectorAll('.weapon')
@@ -68,9 +78,6 @@ function game(){
    }
 
 
-function rPS (Event){
-   playerSelection = (Event.target.value);
-   playRound();
-};
+
 
 
