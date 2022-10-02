@@ -5,25 +5,25 @@ function getComputerChoice() {
    return choice;
 } 
 
-function playRound(){
-   let score = 0
-   outcome = RockPaperScissors(); 
-   if (outcome ==='You win!'){
-       score++
-   } else if (outcome === 'You lost!'){
-       score--
-   } else (outcome ==='Tie game!')
-       score
+// function playRound(){
+//    let score = 0
+//    outcome = RockPaperScissors(); 
+//    if (outcome ==='You win!'){
+//        score++
+//    } else if (outcome === 'You lost!'){
+//        score--
+//    } else (outcome ==='Tie game!')
+//        score
 
    
-   alert(outcome);
-   console.log(outcome);
-   console.log(score)
+//    alert(outcome);
+//    console.log(outcome);
+//    console.log(score)
 
-   return score; }
+//    return score; }
 
 
-function RockPaperScissors (){ 
+function playRound (){ 
    computerSelection = getComputerChoice();
    if (playerSelection === 'rock' && computerSelection ==='scissors'){
       result = ('You win!');
@@ -47,34 +47,29 @@ function RockPaperScissors (){
       result = 'Invalid entry! Please try again!'
    }
    console.log(playerSelection);
-
+   console.log(result)
    return result;
+   
    };
 
-
-
 const gameStart = document.querySelector('#gameStart');
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper')
-const scissors = document.querySelector('#scissors')
-
-gameStart.addEventListener('click', game, true);
-
+gameStart.addEventListener('click', game);
 
 function game(){
-   console.log(Event);
-   
-   for (i = 0; i<5; i++){
-      rock.addEventListener('click', rPS, true);
-      paper.addEventListener('click', rPS, true);
-      scissors.addEventListener('click', rPS, true)
+   const statusBar = document.querySelector('#statusBar');
+   statusBar.textContent = 'Status: Game in progress, Round 1 - Make a selection!'
+   const weapon = document.querySelectorAll('.weapon')
+   weapon.forEach(weapon =>{
+      weapon.addEventListener('click', rPS)
+   })
+
+   const gameResult = document.querySelector('#gameResult');
+
    }
 
-}
 
 function rPS (Event){
    playerSelection = (Event.target.value);
-   RockPaperScissors(playerSelection);
    playRound();
 };
 
