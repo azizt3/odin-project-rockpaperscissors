@@ -32,7 +32,7 @@ function game(){
    } 
 
    function playRound (){ 
-      computerSelection = getComputerChoice();
+      computerSelection = getComputerChoice()
 
       if    ((playerSelection === 'rock' && computerSelection ==='scissors') ||
             (playerSelection === 'paper' && computerSelection ==='rock') ||
@@ -50,13 +50,13 @@ function game(){
          result = ('L')
          computerScore++
          roundNumber++}
-          
+         
       else if ((playerSelection === 'rock' && computerSelection ==='rock') ||
                (playerSelection === 'paper' && computerSelection ==='paper') ||
                (playerSelection === 'scissors' && computerSelection ==='scissors')){
          
          result = ('T')
-         roundNumber++}
+         roundNumber++} 
       
       console.log(playerSelection);
       console.log(result);
@@ -65,17 +65,21 @@ function game(){
       console.log(roundNumber);
       return result;
       
-      };
+      }
 
    function rPS (Event){
       playerSelection = (Event.target.value);
       playRound();
+      statusBar.textContent = `Game in progress: Round ${roundNumber}!`
+      scoreBoard.textContent = `You: ${playerScore} | Computer ${computerScore}`
+      
    };
 
    const statusBar = document.querySelector('#statusBar');
+   const gameScore = document.querySelector('#gameResult');
    const weapon = document.querySelectorAll('.weapon');
 
-   statusBar.textContent = 'Status: Game in progress, Round 1 - Make a selection!'
+   statusBar.textContent = 'Game in progress, Round 1 - Make a selection!'
 
    weapon.forEach(weapon =>{ weapon.addEventListener('click', rPS) });
 
@@ -83,13 +87,8 @@ function game(){
    var playerScore = 0;
    var computerScore = 0;
    var roundNumber = 0;
+   var gameWinner
 
    return playerScore;
    return computerScore;
-
-   }
-
-
-
-
-
+}
