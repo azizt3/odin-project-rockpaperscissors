@@ -1,9 +1,4 @@
-function getComputerChoice() {
-   options = ['rock','paper','scissors']
-   let randomNumber = Math.floor(Math.random()*3);
-   choice = options[randomNumber];
-   return choice;
-} 
+
 
 // function playRound(){
 //    let score = 0
@@ -22,12 +17,20 @@ function getComputerChoice() {
 
 //    return score; }
 
-// Oct 2nd - 2h 30 mins in
+// Oct 2nd - 3h 0 mins in
 
 const gameStart = document.querySelector('#gameStart');
 gameStart.addEventListener('click', game);
 
 function game(){
+
+   function getComputerChoice() {
+      options = ['rock','paper','scissors']
+      let randomNumber = Math.floor(Math.random()*3);
+      choice = options[randomNumber];
+      return choice;
+   } 
+
    function playRound (){ 
       computerSelection = getComputerChoice();
 
@@ -35,26 +38,31 @@ function game(){
             (playerSelection === 'paper' && computerSelection ==='rock') ||
             (playerSelection === 'scissors' && computerSelection ==='paper')) {
 
-         result = ('W')}
+         result = ('W')
+         playerScore++
+         roundNumber++}
+         
       
       else if ((playerSelection === 'rock' && computerSelection ==='paper') ||
                (playerSelection === 'paper' && computerSelection ==='scissors') ||
                (playerSelection === 'scissors' && computerSelection ==='rock')){
          
-         result = ('L')}
+         result = ('L')
+         computerScore++
+         roundNumber++}
           
       else if ((playerSelection === 'rock' && computerSelection ==='rock') ||
                (playerSelection === 'paper' && computerSelection ==='paper') ||
                (playerSelection === 'scissors' && computerSelection ==='scissors')){
          
-         result = ('T')}
+         result = ('T')
+         roundNumber++}
       
-      else {
-         
-         result = ('error')}
-
       console.log(playerSelection);
-      console.log(result)
+      console.log(result);
+      console.log(playerScore);
+      console.log(computerScore);
+      console.log(roundNumber);
       return result;
       
       };
@@ -64,16 +72,20 @@ function game(){
       playRound();
    };
 
-   var playerSelection 
-   
    const statusBar = document.querySelector('#statusBar');
-   statusBar.textContent = 'Status: Game in progress, Round 1 - Make a selection!'
-   const weapon = document.querySelectorAll('.weapon')
-   weapon.forEach(weapon =>{
-      weapon.addEventListener('click', rPS)
-   })
+   const weapon = document.querySelectorAll('.weapon');
 
-   const gameResult = document.querySelector('#gameResult');
+   statusBar.textContent = 'Status: Game in progress, Round 1 - Make a selection!'
+
+   weapon.forEach(weapon =>{ weapon.addEventListener('click', rPS) });
+
+   var playerSelection; 
+   var playerScore = 0;
+   var computerScore = 0;
+   var roundNumber = 0;
+
+   return playerScore;
+   return computerScore;
 
    }
 
