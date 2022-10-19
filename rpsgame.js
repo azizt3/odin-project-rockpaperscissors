@@ -1,35 +1,43 @@
 
+main ()
 
-// function playRound(){
-//    let score = 0
-//    outcome = RockPaperScissors(); 
-//    if (outcome ==='You win!'){
-//        score++
-//    } else if (outcome === 'You lost!'){
-//        score--
-//    } else (outcome ==='Tie game!')
-//        score
+//main function for the entire game. Holds all of the functions in this script.
+function main (){
 
-   
-//    alert(outcome);
-//    console.log(outcome);
-//    console.log(score)
-
-//    return score; }
-
-// Oct 2nd - 3h 0 mins in
+//Clicking gamestart button executes the game() function:
 
 const gameStart = document.querySelector('#gameStart');
 gameStart.addEventListener('click', game);
 
+
 function game(){
 
+   //Gets a random choice from Rock/paper/scissors from computer
    function getComputerChoice() {
       options = ['rock','paper','scissors']
       let randomNumber = Math.floor(Math.random()*3);
       choice = options[randomNumber];
       return choice;
    } 
+
+   function rPS (Event){
+      playerSelection = (Event.target.value);
+      playRound();
+
+      if (playerScore === 5){
+         gameWinner.textContent = `You win the ROCK PAPER SCISSORS Battle!`
+
+      } else if (computerScore === 5) {
+         gameWinner.textContent = 'You have lost the rock paper scissors battle :('
+      }
+      else{
+
+      }
+
+      statusBar.textContent = `Game in progress: Round ${roundNumber}!`
+      scoreBoard.textContent = `You: ${playerScore} | Computer ${computerScore}`
+      
+   };
 
    function playRound (){ 
       computerSelection = getComputerChoice()
@@ -66,29 +74,44 @@ function game(){
       return result;
       
       }
+   
+function gameOver(){
+   gameStart.addEventListener ('click', reset);
+}
 
-   function rPS (Event){
-      playerSelection = (Event.target.value);
-      playRound();
-      statusBar.textContent = `Game in progress: Round ${roundNumber}!`
-      scoreBoard.textContent = `You: ${playerScore} | Computer ${computerScore}`
-      
-   };
+function reset(){
+   statusBar.textContent = 'Status: Game has not started.'
+   scoreBoard.textContent = 'Scoreboard:'
+   gameStart.textContent = 'Begin 5 Rounds!'
+   gameWinner.textContent = ''
+   playerScore = 0
+   computerScore = 0
+   roundNumber = 0
+   
+   console.log(playerScore);
+   console.log(computerScore)
+}
 
    const statusBar = document.querySelector('#statusBar');
-   const gameScore = document.querySelector('#gameResult');
+   const scoreBoard = document.querySelector('#scoreBoard');
    const weapon = document.querySelectorAll('.weapon');
+   const gameWinner = document.querySelector('#gameWinner');
+
+   gameStart.textContent = 'Reset'
+
+   gameStart.addEventListener ('click', reset);
 
    statusBar.textContent = 'Game in progress, Round 1 - Make a selection!'
 
    weapon.forEach(weapon =>{ weapon.addEventListener('click', rPS) });
-
+   
    var playerSelection; 
    var playerScore = 0;
    var computerScore = 0;
    var roundNumber = 0;
-   var gameWinner
 
    return playerScore;
    return computerScore;
-}
+
+}}
+
